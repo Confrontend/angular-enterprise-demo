@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "@iEat/shared": {
+      "projectType": "library",
+      "root": "projects/i-eat/shared",
+      "sourceRoot": "projects/i-eat/shared/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/i-eat/shared/tsconfig.lib.json",
+            "project": "projects/i-eat/shared/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/i-eat/shared/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/i-eat/shared/src/test.ts",
+            "tsConfig": "projects/i-eat/shared/tsconfig.spec.json",
+            "karmaConfig": "projects/i-eat/shared/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/i-eat/shared/tsconfig.lib.json",
+              "projects/i-eat/shared/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-enterprise-demo"

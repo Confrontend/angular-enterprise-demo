@@ -14,6 +14,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "paths": {
+      "@i-eat/shared": [
+        "projects/i-eat/shared/src/public-api"
+      ]
+    },
     "target": "es2015",
     "module": "es2020",
     "lib": [
