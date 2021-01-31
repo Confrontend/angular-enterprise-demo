@@ -1,5 +1,5 @@
 /*
- * Public API Surface of shared
+ * Public API Surface of core
  */
 
 export * from './lib/guards/home-resolve.service'

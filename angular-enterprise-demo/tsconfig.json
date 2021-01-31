@@ -15,6 +15,15 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "@i-eat/api-clients": [
+        "projects/i-eat/api-clients/src/public-api"
+      ],
+      "@i-eat/i-eat-modules": [
+        "projects/i-eat/i-eat-modules/src/public-api"
+      ],
+      "@i-eat/core": [
+        "projects/i-eat/core/src/public-api"
+      ],
       "@i-eat/shared": [
         "projects/i-eat/shared/src/public-api"
       ]

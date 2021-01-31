@@ -1,21 +1,29 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { AuthGuardGuard, HomePageResolverService } from '@i-eat/shared'
-import { HeaderComponent } from './layout/header/header.component'
-import { SidebarComponent } from './layout/sidebar/sidebar.component'
+import { AuthGuardGuard, HomePageResolverService } from '@i-eat/core'
+import { HeaderComponent, SidebarComponent } from '@i-eat/i-eat-modules'
 
-
+const rootPath = 'app'
 const homePath = 'home'
 
 const routes: Routes = [
+  // {
+  //   path: '**',
+  //   pathMatch: 'full',
+  //   redirectTo: `404 page not found`,
+  // },
   {
-    path: '**',
+    path: '',
     pathMatch: 'full',
-    redirectTo: homePath,
+    redirectTo: rootPath + '/' + homePath,
   },
   {
-    path: homePath,
+    path: rootPath,
     pathMatch: 'full',
+    redirectTo: rootPath + '/' + homePath,
+  },
+  {
+    path: rootPath,
     canActivate: [ AuthGuardGuard ],
     resolve: {
       initialSettings: HomePageResolverService,
@@ -30,6 +38,11 @@ const routes: Routes = [
         path: '',
         component: SidebarComponent,
         outlet: 'app-sidebar',
+      },
+      {
+        path: homePath,
+        loadChildren: () => import('./routing/app-home.module').then(m => m.AppHomeModule),
+        // component: HomeComponent,
       },
     ],
   },

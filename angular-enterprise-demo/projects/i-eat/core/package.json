@@ -1,5 +1,5 @@
 {
-  "name": "@i-eat/shared",
+  "name": "@i-eat/core",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^11.1.0",

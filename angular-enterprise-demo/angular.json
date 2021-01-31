@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -94,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -126,7 +128,127 @@
         }
       }
     },
-    "@iEat/shared": {
+    "@iEat/core": {
+      "projectType": "library",
+      "root": "projects/i-eat/core",
+      "sourceRoot": "projects/i-eat/core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/i-eat/core/tsconfig.lib.json",
+            "project": "projects/i-eat/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/i-eat/core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/i-eat/core/src/test.ts",
+            "tsConfig": "projects/i-eat/core/tsconfig.spec.json",
+            "karmaConfig": "projects/i-eat/core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/i-eat/core/tsconfig.lib.json",
+              "projects/i-eat/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@iEat/api-clients": {
+      "projectType": "library",
+      "root": "projects/i-eat/api-clients",
+      "sourceRoot": "projects/i-eat/api-clients/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/i-eat/api-clients/tsconfig.lib.json",
+            "project": "projects/i-eat/api-clients/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/i-eat/api-clients/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/i-eat/api-clients/src/test.ts",
+            "tsConfig": "projects/i-eat/api-clients/tsconfig.spec.json",
+            "karmaConfig": "projects/i-eat/api-clients/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/i-eat/api-clients/tsconfig.lib.json",
+              "projects/i-eat/api-clients/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@iEat/i-eat-modules": {
+      "projectType": "library",
+      "root": "projects/i-eat/i-eat-modules",
+      "sourceRoot": "projects/i-eat/i-eat-modules/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/i-eat/i-eat-modules/tsconfig.lib.json",
+            "project": "projects/i-eat/i-eat-modules/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/i-eat/i-eat-modules/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/i-eat/i-eat-modules/src/test.ts",
+            "tsConfig": "projects/i-eat/i-eat-modules/tsconfig.spec.json",
+            "karmaConfig": "projects/i-eat/i-eat-modules/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/i-eat/i-eat-modules/tsconfig.lib.json",
+              "projects/i-eat/i-eat-modules/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@i-eat/shared": {
       "projectType": "library",
       "root": "projects/i-eat/shared",
       "sourceRoot": "projects/i-eat/shared/src",
